@@ -14,8 +14,8 @@
     "accessModes": [ "ReadWriteMany" ],
     "persistentVolumeReclaimPolicy": "Recycle",
     "nfs": {
-      "Server": "{{ inventory_hostname }}",
-      "Path": "{{ osnl_mount_dir }}/{{ item }}"
+      "server": "{{ inventory_hostname }}",
+      "path": "{{ osnl_mount_dir }}/{{ item }}"
     }
   }
 }
