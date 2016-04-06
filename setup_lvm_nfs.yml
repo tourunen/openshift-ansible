@@ -1,0 +1,20 @@
+- hosts: nfsservers
+  sudo: yes
+  remote_user: cloud-user
+  gather_facts: no
+  roles:
+    - role: openshift_storage_nfs_lvm
+      osnl_volume_group: 'vg_pvol'
+      osnl_mount_dir: /exports/pvol
+      osnl_volume_prefix: "pvol"
+      osnl_volume_size: 4
+      osnl_volume_num_start: 0
+      osnl_number_of_volumes: 8
+
+    - role: openshift_storage_nfs_lvm
+      osnl_volume_group: 'vg_pvol'
+      osnl_mount_dir: /exports/pvol
+      osnl_volume_prefix: "pvol"
+      osnl_volume_size: 1
+      osnl_volume_num_start: 0
+      osnl_number_of_volumes: 32
