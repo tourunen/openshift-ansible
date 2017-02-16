@@ -4,6 +4,8 @@
   gather_facts: yes
   vars:
     osnl_nfs_export_options: '*(rw,root_squash,no_wdelay)'
+    # should not need to set deployment type here
+    openshift_deployment_type: 'origin'
   roles:
     - role: openshift_storage_nfs_lvm
       osnl_volume_group: 'vg_pvol'
