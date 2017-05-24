@@ -4,8 +4,10 @@
   gather_facts: yes
   vars:
     osnl_nfs_export_options: '*(rw,root_squash,no_wdelay)'
+    osnl_volume_reclaim_policy: 'Retain'
     # should not need to set deployment type here
     openshift_deployment_type: 'origin'
+
   roles:
     - role: openshift_storage_nfs_lvm
       osnl_volume_group: 'vg_pvol'
@@ -13,15 +15,15 @@
       osnl_volume_prefix: "pvol"
       osnl_volume_size: 4
       osnl_volume_num_start: 0
-      osnl_number_of_volumes: 16
+      osnl_number_of_volumes: 32
 
     - role: openshift_storage_nfs_lvm
       osnl_volume_group: 'vg_pvol'
       osnl_mount_dir: /exports/pvol
       osnl_volume_prefix: "pvol"
       osnl_volume_size: 16
-      osnl_volume_num_start: 0
-      osnl_number_of_volumes: 2
+      osnl_volume_num_start: 1
+      osnl_number_of_volumes: 0
 
     - role: openshift_storage_nfs_lvm
       osnl_volume_group: 'vg_pvol'
@@ -29,7 +31,7 @@
       osnl_volume_prefix: "pvol"
       osnl_volume_size: 64
       osnl_volume_num_start: 0
-      osnl_number_of_volumes: 2
+      osnl_number_of_volumes: 0
 
     - role: openshift_storage_nfs_lvm
       osnl_volume_group: 'vg_pvol'
@@ -37,7 +39,7 @@
       osnl_volume_prefix: "pvol"
       osnl_volume_size: 128
       osnl_volume_num_start: 0
-      osnl_number_of_volumes: 2
+      osnl_number_of_volumes: 0
 
     - role: openshift_storage_nfs_lvm
       osnl_volume_group: 'vg_pvol'
@@ -45,7 +47,7 @@
       osnl_volume_prefix: "pvol"
       osnl_volume_size: 250
       osnl_volume_num_start: 0
-      osnl_number_of_volumes: 2
+      osnl_number_of_volumes: 1
 
     - role: openshift_storage_nfs_lvm
       osnl_volume_group: 'vg_pvol'
